@@ -1,0 +1,248 @@
+/* 全局重置 + 核心防溢出 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.8;
+    overflow-x: hidden !important;
+    width: 100% !important;
+}
+
+/* 容器适配 */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* 顶部主标题 */
+.main-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* 板块标题 */
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+}
+
+/* 板块样式 */
+.section {
+    margin-bottom: 40px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    width: 100%;
+}
+
+/* 关于我文本 */
+.intro-text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    word-wrap: break-word;
+}
+
+/* 教育经历 */
+.edu-item {
+    margin-bottom: 25px;
+}
+.edu-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+.edu-school {
+    color: #3498db;
+}
+.edu-time {
+    color: #666;
+}
+.edu-major {
+    color: #e74c3c;
+}
+.detail-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #3498db;
+    margin: 10px 0 5px;
+}
+.detail-content {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    text-indent: 2em;
+    word-wrap: break-word;
+}
+
+/* 工作经历 */
+.work-list {
+    list-style: none;
+}
+.work-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    word-wrap: break-word;
+}
+.work-list li::before {
+    content: "•";
+    color: #3498db;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+.work-time {
+    font-weight: 600;
+    color: #2c3e50;
+    min-width: 160px;
+}
+.work-place {
+    color: #3498db;
+    min-width: 220px;
+}
+.work-post {
+    color: #666;
+}
+
+/* 专业技能 */
+.skill-summary {
+    font-size: 16px;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+}
+.skill-list {
+    list-style: none;
+    padding-left: 20px;
+}
+.skill-list li {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+    word-wrap: break-word;
+}
+.skill-list li::before {
+    content: "•";
+    color: #3498db;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* work1长图适配（核心修复） */
+.work-images {
+    width: 100%;
+    overflow-x: auto;
+    padding: 10px 0;
+    margin: 0 auto;
+}
+.work1-img {
+    height: auto;
+    min-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 抖音视频容器适配（核心） */
+.video-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+.video-container iframe {
+    width: 100%;
+    max-width: 500px; /* 抖音竖版视频适配宽度 */
+    height: 800px; /* 抖音视频适配高度 */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 页脚样式 */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #666;
+    font-size: 14px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+
+/* 响应式适配（手机端） */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 24px;
+    }
+    .section-title {
+        font-size: 22px;
+    }
+    .edu-header {
+        font-size: 16px;
+    }
+    .work-list li, .skill-list li {
+        font-size: 14px;
+    }
+    .work-time, .work-place {
+        min-width: auto;
+        width: 100%;
+    }
+    .detail-content {
+        text-indent: 0;
+    }
+    /* 手机端抖音视频适配 */
+    .video-container iframe {
+        height: 500px; /* 手机端缩小视频高度 */
+        max-width: 90%; /* 手机端占满屏幕宽度 */
+    }
+    /* 手机端长图适配 */
+    .work1-img {
+        max-height: 60vh;
+    }
+}
+
+/* 美化滚动条 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
